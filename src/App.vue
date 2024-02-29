@@ -3,6 +3,7 @@ import ReadCSV from './components/ReadCSV.vue';
 </script>
 
 <template>
+  <h1 class="text-3xl font-bold text-gray-900">IAM User Leaderboard of Shame</h1>
   <ReadCSV />
 </template>
 
