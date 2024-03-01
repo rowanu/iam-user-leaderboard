@@ -1,5 +1,7 @@
 <template>
   <h1 class="text-3xl font-bold text-gray-900">IAM User Leaderboard of Shame</h1>
+  <FontAwesomeIcon icon="coffee" />
+
   <ReadCSV @parsed-data="recieveData" />
   <div v-if="data">
     <UserBoard :data="data" />
@@ -10,6 +12,13 @@
 import { ref } from 'vue';
 import ReadCSV from './components/ReadCSV.vue';
 import UserBoard from './components/UserBoard.vue';
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas)
+
 
 const data = ref(null);
 
