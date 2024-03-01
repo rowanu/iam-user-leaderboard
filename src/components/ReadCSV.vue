@@ -23,11 +23,6 @@
         </div>
       </div>
     </div>
-    <div v-if="csvText">
-      <h2 class="text-lg leading-6 font-medium text-gray-900">Parsed CSV</h2>
-      <pre class="mt-3 bg-white rounded-md text-sm p-4">{{ csvText }}</pre>
-      <div>{{ csvData }}</div>
-    </div>
   </div>
 </template>
 
@@ -35,8 +30,7 @@
 import { ref } from 'vue'
 import { parse } from 'papaparse'
 
-const csvText = ref(null)
-const csvData = ref(null)
+const emit = defineEmits(['parsed-data'])
 
 function uploadFile(event) {
   const file = event.target.files[0]
@@ -47,8 +41,7 @@ function uploadFile(event) {
       dynamicTyping: true,
       skipEmptyLines: true,
     })
-    csvData.value = results.data
-    csvText.value = event.target.result
+    emit('parsed-data', results.data)
   }
   reader.readAsText(file)
 }

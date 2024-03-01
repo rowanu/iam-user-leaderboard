@@ -1,25 +1,21 @@
-<script setup>
-import ReadCSV from './components/ReadCSV.vue';
-</script>
-
 <template>
   <h1 class="text-3xl font-bold text-gray-900">IAM User Leaderboard of Shame</h1>
-  <ReadCSV />
+  <ReadCSV @parsed-data="recieveData" />
+  <div v-if="data">
+    <UserBoard :data="data" />
+  </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script setup>
+import { ref } from 'vue';
+import ReadCSV from './components/ReadCSV.vue';
+import UserBoard from './components/UserBoard.vue';
+
+const data = ref(null);
+
+const recieveData = (recievedData) => {
+  console.log('Recieved user data')
+  data.value = recievedData
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+</script>
