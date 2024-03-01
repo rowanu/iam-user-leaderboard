@@ -10,16 +10,13 @@
     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
       <div class="space-y-1 text-center">
         <div class="flex text-sm text-gray-600">
-          <label for="file-input"
-            class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-            <svg class="mx-auto h-12 w-12 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-            </svg>
+          <button type="button"
+            class="group relative w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm text-left text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            @click="$refs.fileInput.click()">
+            <input type="file" ref="fileInput" class="hidden" accept=".csv" @change="uploadFile($event)">
+            <img src="../assets/csv.svg" alt="A CSV file" class="w-6 h-6 inline-block mr-2 group-hover:text-indigo-600" />
             <span>Load a file</span>
-            <input id="file-input" name="file" type="file" class="sr-only" @change="uploadFile" />
-          </label>
+          </button>
         </div>
       </div>
     </div>
