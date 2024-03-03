@@ -1,7 +1,8 @@
-# Vue 3 + Vite
+# IAM User Leadboard OF SHAME
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This small web app parses your AWS IAM Credential Report and highlights the users that are winning the competition OF SHAME... which is not a good thing.
 
-## Recommended IDE Setup
+> [!IMPORTANT]
+> Your credentials file is NOT uploaded anywhere! All processing happens locally in your browser.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Want to learn more about AWS IAM? Check out my book https://awsiamguide.com/.
