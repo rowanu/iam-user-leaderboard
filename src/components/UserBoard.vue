@@ -1,15 +1,20 @@
 <template>
-  <table class="w-full">
+  <table class="w-full text-center">
     <tr>
       <th>User</th>
       <th>ARN</th>
-      <th>MFA</th>
+      <th>MFA enabled?</th>
     </tr>
     <tr v-for="item in enrichedData" :key="item.user">
       <td>{{ item.user }}</td>
       <td>{{ item.arn }}</td>
       <td>
-        <FontAwesomeIcon v-if="!item.mfa_active" icon="fingerprint" class="text-red-500" />
+        <span v-if="item.mfa_fail">
+          <FontAwesomeIcon icon="fingerprint" class="text-red-500" /> FAIL
+        </span>
+        <span v-else>
+          <FontAwesomeIcon icon="fingerprint" class="text-green-500" /> PASS
+        </span>
       </td>
     </tr>
   </table>
@@ -80,6 +85,7 @@ const enrichedData = computed(() => {
   return props.data.map((item) => {
     return {
       ...item,
+      mfa_fail: !item.mfa_active,
       // user_creation_time: new Date(item.user_creation_time).toLocaleString(),
       // password_last_used: new Date(item.password_last_used).toLocaleString(),
       // password_last_changed: new Date(item.password_last_changed).toLocaleString(),
