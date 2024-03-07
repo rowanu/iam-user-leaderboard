@@ -23,15 +23,14 @@
     <div>
       <h3 class="text-xl">Key</h3>
       <div>
-        <FontAwesomeIcon icon="fingerprint" /> MFA shoould enabled if the user uses a password, or is a root user.
-        <FontAwesomeIcon icon="key" /> Access keys should only be used by users with no password.
+        <font-awesome-icon icon="fingerprint" /> MFA shoould enabled if the user uses a password, or is a root user.
+        <font-awesome-icon icon="key" /> Access keys should only be used by users with no password.
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { parse } from 'papaparse'
 
 const emit = defineEmits(['parsed-data'])

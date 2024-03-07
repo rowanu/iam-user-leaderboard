@@ -4,10 +4,10 @@
       <li v-for="item in enrichedData" :key="item.user" class="p-1">
         {{ item.user }}
         <span v-if="item.mfa_fail">
-          <FontAwesomeIcon icon="fingerprint" class="text-red-500" /> FAIL
+          <font-awesome-icon icon="fingerprint" class="text-red-500" /> FAIL
         </span>
         <span v-else>
-          <FontAwesomeIcon icon="fingerprint" class="text-green-500" /> PASS
+          <font-awesome-icon icon="fingerprint" class="text-green-500" /> PASS
         </span>
       </li>
     </ol>
@@ -70,7 +70,6 @@
 </template>
 
 <script setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { ref, computed } from 'vue';
 
 let showRawData = ref(false)
